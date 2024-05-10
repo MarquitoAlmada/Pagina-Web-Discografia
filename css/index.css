@@ -1,4 +1,119 @@
+@import url("font/font.css");
+
 body {
-    margin: 0;
-    text-align: center;
+  margin: 0;
+  font-family: "FD";
+  background-color: #111;
+  color: #ededed;
+}
+
+.div-titulo {
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(transparent 0%, #111 80%),
+    url("../images/fondo.jpg") top / cover fixed transparent;
+  text-shadow: 0 0 10px #111;
+}
+
+h1 {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  font-size: 50px;
+}
+
+h2 {
+  cursor: default;
+}
+
+.frase {
+  font-style: italic;
+}
+
+.div-titulo span {
+  font-size: 20px;
+}
+
+/* ------ GRUPOS ------ */
+
+.container-div-grupos {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.div-grupos {
+  /* user-select: none; */
+  margin-bottom: 500px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grupos {
+  margin-top: 50px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 50px;
+  justify-items: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .grupos {
+    grid-template-columns: 1fr;
+  }
+}
+
+.element-grupos {
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  background-color: #333;
+  border-radius: 20px;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+
+.element-grupos:hover {
+  transform: scale(1.1);
+  filter: brightness(120%);
+}
+
+.solitario {
+  margin-bottom: 50px;
+}
+
+.img-container {
+  margin-right: 30px;
+  height: 100%;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-grupo {
+  width: 100%;
+  height: max-content;
+  border-radius: 5px;
+}
+
+.div-descripcion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.nombre {
+  font-weight: 700;
+}
+
+.descripcion {
+  font-weight: 100;
 }
