@@ -6,7 +6,7 @@ if (!isset($_SESSION)) {
 
 class Conn
 {
-    public $bd;
+    public $db;
 
     public function __construct()
     {
@@ -16,8 +16,8 @@ class Conn
         $password = "";
 
         try {
-            $this->bd = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-            $this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $th) {
             echo "Error: " . $th->getMessage();
         }
