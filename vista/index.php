@@ -18,11 +18,10 @@
 
   <div class="container-div-grupos">
     <div class="div-grupos">
-      <h2>En Solitario</h2>
-
       <?php foreach ($listadoGrupos as $grupo) {
         if ($grupo->nombre_controlador == "solitario") { ?>
-          <div class="element-grupos solitario">
+          <h2>En Solitario</h2>
+          <div class="element-grupos solitario" onclick="verGrupo('<?php echo $grupo->nombre_controlador; ?>');">
             <div class="img-container">
               <img class="img-grupo" src="../images/grupos/<?php echo $grupo->nombre_controlador; ?>.jpg" />
             </div>
@@ -38,7 +37,7 @@
       <div class="grupos">
         <?php foreach ($listadoGrupos as $grupo) {
           if ($grupo->nombre_controlador != "solitario") { ?>
-            <div class="element-grupos">
+            <div class="element-grupos" onclick="verGrupo('<?php echo $grupo->nombre_controlador; ?>');">
               <div class="img-container">
                 <img class="img-grupo" src="../images/grupos/<?php echo $grupo->nombre_controlador; ?>.jpg" />
               </div>
@@ -50,6 +49,13 @@
           <?php }
         } ?>
       </div>
+
+      <script>
+        function verGrupo(nombreGrupo) {
+          location.href = `../controlador/grupoControlador.php?grupo=${nombreGrupo}`;
+        }
+      </script>
+
     </div>
   </div>
 </body>
