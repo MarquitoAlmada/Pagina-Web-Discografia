@@ -26,7 +26,7 @@ class Grupo
     public function buscarGrupoPorNombre($search)
     {
         $ic = new Conn();
-        $sql = "SELECT * FROM grupos WHERE nombre_controlador = $search";
+        $sql = "SELECT * FROM grupos WHERE nombre_controlador = '$search'";
         $consulta = $ic->db->prepare($sql);
         $consulta->execute();
         $numrows = $consulta->rowCount();

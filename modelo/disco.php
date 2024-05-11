@@ -1,6 +1,6 @@
 <?php
 
-class Disco
+class Disco extends Grupo
 {
     protected $id_disco;
     protected $id_grupo;
@@ -9,7 +9,7 @@ class Disco
     protected $duracion;
     protected $año;
     protected $estado;
-
+    
     public function buscarDiscos()
     {
         $ic = new Conn();
@@ -28,7 +28,7 @@ class Disco
     public function buscarDiscosPorNombre($search)
     {
         $ic = new Conn();
-        $sql = "SELECT * FROM discos WHERE nombre_controlador = $search";
+        $sql = "SELECT * FROM discos WHERE nombre_controlador = '$search'";
         $consulta = $ic->db->prepare($sql);
         $consulta->execute();
         $numrows = $consulta->rowCount();
@@ -43,7 +43,7 @@ class Disco
     public function buscarDiscosPorGrupo($search)
     {
         $ic = new Conn();
-        $sql = "SELECT * FROM discos WHERE id_grupo = $search";
+        $sql = "SELECT * FROM discos WHERE id_grupo = '$search'";
         $consulta = $ic->db->prepare($sql);
         $consulta->execute();
         $numrows = $consulta->rowCount();

@@ -7,15 +7,15 @@ if (!isset($_SESSION)) {
 }
 
 
-class IndexControlador extends Grupo
+class GrupoControlador extends Grupo
 {
 
     public function vista()
     {
         $listadoGrupos = $this->buscarGrupos();
-        require "../vista/index.php";
+        require "../vista/grupo.php";
     }
 }
 
-$ii = new IndexControlador();
-$ii->vista();
+$ig = new GrupoControlador();
+$ig->vista();

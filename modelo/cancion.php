@@ -1,6 +1,7 @@
 <?php 
+require_once "disco.php";
 
-class Grupo
+class Cancion extends Disco
 {
     protected $id_cancion;
     protected $id_disco;
