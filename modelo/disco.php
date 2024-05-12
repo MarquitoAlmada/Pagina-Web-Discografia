@@ -9,11 +9,11 @@ class Disco extends Grupo
     protected $duracion;
     protected $año;
     protected $estado;
-    
-    public function buscarDiscos()
+
+    public function buscarDiscosPorGrupo($search)
     {
         $ic = new Conn();
-        $sql = "SELECT * FROM discos";
+        $sql = "SELECT * FROM discos WHERE id_grupo = '$search' ORDER BY año";
         $consulta = $ic->db->prepare($sql);
         $consulta->execute();
         $numrows = $consulta->rowCount();
@@ -29,21 +29,6 @@ class Disco extends Grupo
     {
         $ic = new Conn();
         $sql = "SELECT * FROM discos WHERE nombre_controlador = '$search'";
-        $consulta = $ic->db->prepare($sql);
-        $consulta->execute();
-        $numrows = $consulta->rowCount();
-        if ($numrows > 0) {
-            $objetoConsulta = $consulta->fetchAll((PDO::FETCH_OBJ));
-        } else {
-            $objetoConsulta = null;
-        }
-        return $objetoConsulta;
-    }
-
-    public function buscarDiscosPorGrupo($search)
-    {
-        $ic = new Conn();
-        $sql = "SELECT * FROM discos WHERE id_grupo = '$search'";
         $consulta = $ic->db->prepare($sql);
         $consulta->execute();
         $numrows = $consulta->rowCount();
