@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../css/grupo.css" />
   <title>Albumes Spinetta</title>
+  <style>
+    .div-titulo {
+      background: linear-gradient(transparent 25%, #111),
+        url("../images/fondos/<?php echo $grupo ?>.jpg") top / cover fixed transparent;
+    }
+  </style>
 </head>
 
 <body>
@@ -16,43 +22,28 @@
     <span>L.A Spinetta</span>
   </div>
 
-  <div class="container-div-grupos">
-    <div class="div-grupos">
-      <?php foreach ($listadoGrupos as $grupo) {
-        if ($grupo->nombre_controlador == "solitario") { ?>
-          <h2>En Solitario</h2>
-          <div class="element-grupos solitario" onclick="verGrupo('<?php echo $grupo->nombre_controlador; ?>');">
+  <div class="container-div-discos">
+    <div class="div-discos">
+
+      <h2>Discos</h2>
+      <div class="discos">
+        <?php foreach ($listadoDiscos as $disco) { ?>
+          <div class="element-discos" onclick="verDisco('<?php echo $disco->nombre_controlador; ?>');">
             <div class="img-container">
-              <img class="img-grupo" src="../images/grupos/<?php echo $grupo->nombre_controlador; ?>.jpg" />
+              <img class="img-disco" src="../images/discos/<?php echo $_GET['grupo'] . "/" . $disco->nombre_controlador; ?>.jpg" />
             </div>
             <div class="div-descripcion">
-              <span class="nombre"><?php echo $grupo->nombre_vista; ?></span>
-              <p class="descripcion"><?php echo $grupo->descripcion; ?></p>
+              <span class="nombre"><?php echo $disco->nombre_vista; ?></span>
+              <span class="duracion">Duración: <?php echo $disco->duracion; ?></span>
+              <span class="año">Año: <?php echo $disco->año; ?></span>
             </div>
           </div>
-        <?php }
-      } ?>
-
-      <h2>Grupos Musicales</h2>
-      <div class="grupos">
-        <?php foreach ($listadoGrupos as $grupo) {
-          if ($grupo->nombre_controlador != "solitario") { ?>
-            <div class="element-grupos" onclick="verGrupo('<?php echo $grupo->nombre_controlador; ?>');">
-              <div class="img-container">
-                <img class="img-grupo" src="../images/grupos/<?php echo $grupo->nombre_controlador; ?>.jpg" />
-              </div>
-              <div class="div-descripcion">
-                <span class="nombre"><?php echo $grupo->nombre_vista; ?></span>
-                <p class="descripcion"><?php echo $grupo->descripcion; ?></p>
-              </div>
-            </div>
-          <?php }
-        } ?>
+        <?php } ?>
       </div>
 
       <script>
-        function verGrupo(nombreGrupo) {
-          location.href = `../controlador/discoControlador.php?grupo=${nombreGrupo}`;
+        function verDisco(nombreDisco) {
+          location.href = `../controlador/discoControlador.php?disco=${nombreDisco}`;
         }
       </script>
 

@@ -12,6 +12,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: linear-gradient(transparent 25%, #111),
+    url("../images/fondos/index.jpg") top / cover fixed transparent;
   text-shadow: 0 0 10px #111;
 }
 
@@ -33,15 +35,15 @@ h2 {
   font-size: 20px;
 }
 
-/* ------ DISCOS ------ */
+/* ------ GRUPOS ------ */
 
-.container-div-discos {
+.container-div-grupos {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.div-discos {
+.div-grupos {
   /* user-select: none; */
   margin-bottom: 500px;
   width: 80%;
@@ -50,7 +52,7 @@ h2 {
   align-items: center;
 }
 
-.discos {
+.grupos {
   margin-top: 50px;
   width: 100%;
   display: grid;
@@ -60,12 +62,12 @@ h2 {
 }
 
 @media screen and (max-width: 1000px) {
-  .discos {
+  .grupos {
     grid-template-columns: 1fr;
   }
 }
 
-.element-discos {
+.element-grupos {
   padding: 20px;
   width: 100%;
   max-width: 500px;
@@ -78,7 +80,7 @@ h2 {
   transition: all 0.5s ease;
 }
 
-.element-discos:hover {
+.element-grupos:hover {
   transform: scale(1.1);
   filter: brightness(120%);
 }
@@ -96,7 +98,7 @@ h2 {
   align-items: center;
 }
 
-.img-disco {
+.img-grupo {
   width: 100%;
   height: max-content;
   border-radius: 5px;
@@ -108,14 +110,10 @@ h2 {
   flex-direction: column;
 }
 
-.div-descripcion span {
-  margin-bottom: 10px;
-}
-
 .nombre {
-  font-weight: 900;
+  font-weight: 700;
 }
 
-.duracion, .año {
+.descripcion {
   font-weight: 100;
 }

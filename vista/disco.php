@@ -42,8 +42,8 @@
       </div>
 
       <script>
-        function verGrupo(nombreDisco) {
-          location.href = `../controlador/cancionControlador.php?disco=${nombreDisco}`;
+        function verDisco(nombreDisco) {
+          location.href = `../controlador/discoControlador.php?disco=${nombreDisco}`;
         }
       </script>
 
