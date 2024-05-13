@@ -9,6 +9,8 @@
 </head>
 
 <body>
+  <?php require "../menu/menu.php" ?>
+
   <div class="div-titulo">
     <h1>Discografía de Spinetta</h1>
     <span class="frase">"Tengo que aprender a volar entre tanta gente de pie"</span>

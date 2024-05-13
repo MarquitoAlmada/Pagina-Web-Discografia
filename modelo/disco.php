@@ -10,6 +10,21 @@ class Disco extends Grupo
     protected $año;
     protected $estado;
 
+    public function buscarDiscos()
+    {
+        $ic = new Conn();
+        $sql = "SELECT * FROM discos ORDER BY año";
+        $consulta = $ic->db->prepare($sql);
+        $consulta->execute();
+        $numrows = $consulta->rowCount();
+        if ($numrows > 0) {
+            $objetoConsulta = $consulta->fetchAll((PDO::FETCH_OBJ));
+        } else {
+            $objetoConsulta = null;
+        }
+        return $objetoConsulta;
+    }
+
     public function buscarDiscosPorGrupo($search)
     {
         $ic = new Conn();
