@@ -37,4 +37,19 @@ class Grupo
         }
         return $objetoConsulta;
     }
+
+    public function buscarGrupoPorId($search)
+    {
+        $ic = new Conn();
+        $sql = "SELECT * FROM grupos WHERE id_grupo = '$search'";
+        $consulta = $ic->db->prepare($sql);
+        $consulta->execute();
+        $numrows = $consulta->rowCount();
+        if ($numrows > 0) {
+            $objetoConsulta = $consulta->fetchAll((PDO::FETCH_OBJ));
+        } else {
+            $objetoConsulta = null;
+        }
+        return $objetoConsulta;
+    }
 }

@@ -25,7 +25,7 @@ class Disco extends Grupo
         return $objetoConsulta;
     }
 
-    public function buscarDiscosPorNombre($search)
+    public function buscarDiscoPorNombre($search)
     {
         $ic = new Conn();
         $sql = "SELECT * FROM discos WHERE nombre_controlador = '$search'";

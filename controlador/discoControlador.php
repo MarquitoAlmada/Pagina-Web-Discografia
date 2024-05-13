@@ -12,13 +12,16 @@ if (!isset($_SESSION)) {
 class DiscoControlador extends Cancion
 {
 
-    public function vista($grupo)
+    public function vista($disco)
     {
-        $id_grupo = $this->buscarGrupoPorNombre($grupo);
-        $listadoDiscos = $this->buscarDiscosPorGrupo($id_grupo[0]->id_grupo);
+        $disco = $this->buscarDiscoPorNombre($disco);
+        $listadoDiscos = $this->buscarCancionesPorDisco($disco[0]->id_disco);
+
+        $ig = new Grupo();
+        $grupo = $ig->buscarGrupoPorId($disco[0]->id_grupo);
         require "../vista/disco.php";
     }
 }
 
 $id = new DiscoControlador();
-$id->vista($_GET['grupo']);
+$id->vista($_GET['disco']);

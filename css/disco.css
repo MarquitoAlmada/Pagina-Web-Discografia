@@ -1,0 +1,100 @@
+@import url("font/font.css");
+
+body {
+  margin: 0;
+  font-family: "FD";
+  background-color: #111;
+  color: #ededed;
+}
+
+.div-titulo {
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-shadow: 0 0 10px #111;
+}
+
+h1 {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  font-size: 50px;
+}
+
+h2 {
+  cursor: default;
+}
+
+.frase {
+  font-style: italic;
+}
+
+.div-titulo span {
+  font-size: 20px;
+}
+
+/* ------ DISCOS ------ */
+
+.container-div-discos {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.div-discos {
+  /* user-select: none; */
+  margin-bottom: 500px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.discos {
+  margin-top: 50px;
+  padding: 40px;
+  width: max-content;
+  background-color: #2a2a2a;
+  display: flex;
+  justify-items: center;
+  border-radius: 15px;
+}
+
+.img-container {
+  margin-right: 30px;
+  height: 100%;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-disco {
+  width: 100%;
+  height: max-content;
+  border-radius: 5px;
+}
+
+.canciones-container {
+  width: 100%;
+  background-color: #252525;
+  box-shadow: 0 0 15px 10px #252525;
+  border-radius: 10px;
+  display: flex;
+}
+
+.canciones li {
+  margin: 15px 0;
+}
+
+@media screen and (max-width: 1100px) {
+  .discos {
+    flex-direction: column;
+  }
+
+  .canciones-container {
+    margin-left: 0;
+    margin-top: 50px;
+  }
+}

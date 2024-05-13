@@ -12,7 +12,7 @@ class Cancion extends Disco
     public function buscarCancionesPorDisco($search)
     {
         $ic = new Conn();
-        $sql = "SELECT * FROM canciones WHERE id_disco = $search";
+        $sql = "SELECT * FROM canciones WHERE id_disco = '$search'";
         $consulta = $ic->db->prepare($sql);
         $consulta->execute();
         $numrows = $consulta->rowCount();
