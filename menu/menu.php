@@ -97,36 +97,16 @@ $menuDiscos = $im->buscarDiscos();
 		}
 
 		.submenu li a {
-			display: block;
-			color: var(--color-texto);
 			margin: 0;
 			padding: 15px;
+			display: block;
+			color: var(--color-texto);
 			text-decoration: none;
+			border-radius: 10px;
 		}
 
 		.submenu li a:hover {
 			background-color: red;
-		}
-
-		.sub-submenu {
-			padding: 0;
-			display: none;
-			position: absolute;
-			top: 0;
-			left: 100%;
-			min-width: 200px;
-			list-style: none;
-			background-color: rgba(0, 0, 0, 0.5);
-		}
-
-		.submenu li:hover .sub-submenu {
-			display: block;
-		}
-
-		@media screen and (max-width: 1150px) {
-			.sub-submenu {
-			left: -100%;
-		}
 		}
 	</style>
 </head>
@@ -135,25 +115,15 @@ $menuDiscos = $im->buscarDiscos();
 	<div class="container-menu">
 		<ul class="menu">
 			<li><a href="cantanteControlador.php">Home</a></li>
-			<li><a href="grupoControlador.php?grupo=solitario">En Solitario</a></li>
+			<li><a href="progresoControlador.php">Progreso</a></li>
 			<li>
 				<a href="cantanteControlador.php">Grupos</a>
 				<ul class="submenu">
-					<?php foreach ($menuGrupos as $menuGrupo) {
-						if ($menuGrupo->nombre_controlador != "solitario") { ?>
-							<li><a href="grupoControlador.php?grupo=<?php echo $menuGrupo->nombre_controlador; ?>">
-									<?php echo $menuGrupo->nombre_vista; ?></a>
-								<ul class="sub-submenu">
-									<?php foreach ($menuDiscos as $menuDisco) {
-										if ($menuGrupo->id_grupo == $menuDisco->id_grupo) { ?>
-											<li><a href="discoControlador.php?disco=<?php echo $menuDisco->nombre_controlador; ?>">
-													<?php echo $menuDisco->nombre_vista; ?></a></li>
-										<?php }
-									} ?>
-								</ul>
-							</li>
-						<?php }
-					} ?>
+					<?php foreach ($menuGrupos as $menuGrupo) { ?>
+						<li><a href="grupoControlador.php?grupo=<?php echo $menuGrupo->nombre_controlador; ?>">
+								<?php echo $menuGrupo->nombre_vista; ?></a>
+						</li>
+					<?php } ?>
 				</ul>
 			</li>
 		</ul>

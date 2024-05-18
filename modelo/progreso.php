@@ -1,20 +1,25 @@
 <?php
-require_once "grupo.php";
 
-class Disco extends Grupo
+class Progreso
 {
-    protected $id_disco;
-    protected $id_grupo;
-    protected $nombre_vista;
-    protected $nombre_controlador;
-    protected $duracion;
-    protected $año;
-    protected $estado;
-
+    public function buscarCanciones()
+    {
+        $ic = new Conn();
+        $sql = "SELECT * FROM canciones";
+        $consulta = $ic->db->prepare($sql);
+        $consulta->execute();
+        $numrows = $consulta->rowCount();
+        if ($numrows > 0) {
+            $objetoConsulta = $consulta->fetchAll((PDO::FETCH_OBJ));
+        } else {
+            $objetoConsulta = null;
+        }
+        return $objetoConsulta;
+    }
     public function buscarDiscos()
     {
         $ic = new Conn();
-        $sql = "SELECT * FROM discos ORDER BY año";
+        $sql = "SELECT * FROM discos";
         $consulta = $ic->db->prepare($sql);
         $consulta->execute();
         $numrows = $consulta->rowCount();
@@ -25,26 +30,10 @@ class Disco extends Grupo
         }
         return $objetoConsulta;
     }
-
-    public function buscarDiscosPorGrupo($search)
+    public function buscarGrupos()
     {
         $ic = new Conn();
-        $sql = "SELECT * FROM discos WHERE id_grupo = '$search' ORDER BY año";
-        $consulta = $ic->db->prepare($sql);
-        $consulta->execute();
-        $numrows = $consulta->rowCount();
-        if ($numrows > 0) {
-            $objetoConsulta = $consulta->fetchAll((PDO::FETCH_OBJ));
-        } else {
-            $objetoConsulta = null;
-        }
-        return $objetoConsulta;
-    }
-
-    public function buscarDiscoPorNombre($search)
-    {
-        $ic = new Conn();
-        $sql = "SELECT * FROM discos WHERE nombre_controlador = '$search'";
+        $sql = "SELECT * FROM grupos";
         $consulta = $ic->db->prepare($sql);
         $consulta->execute();
         $numrows = $consulta->rowCount();
