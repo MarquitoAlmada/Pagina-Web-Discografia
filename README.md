@@ -1,4 +1,4 @@
-# Página Web de una Discografía(en proceso)
+# Página Web de una Discografía
 
 Este es un proyecto propio, el que trata de una página web sencilla donde puedas marcar los albumes escuchados de un cantante, en este caso, a Luis Alberto Spinetta.
 
